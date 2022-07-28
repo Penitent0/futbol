@@ -1,12 +1,12 @@
 require 'csv'
 
 class StatTracker
-  attr_reader :locations,
-              :games_data,
-              :teams_data,
-              :game_teams_data,
-              :mock_game_teams_data,
-              :mock_games_data
+  # attr_reader :locations,
+  #             :games_data,
+  #             :teams_data,
+  #             :game_teams_data,
+  #             :mock_game_teams_data,
+  #             :mock_games_data
 
   def initialize(locations)
     @locations = locations
@@ -15,11 +15,10 @@ class StatTracker
     @game_teams_data = CSV.read(@locations[:game_teams], headers: true, header_converters: :symbol)
     @mock_game_teams_data = CSV.read(@locations[:mock_game_teams], headers: true, header_converters: :symbol)
     @mock_games_data = CSV.read(@locations[:mock_games], headers: true, header_converters: :symbol)
-
   end
 
   def self.from_csv(locations)
-    new_stat_tracker = StatTracker.new(locations)#games_data, teams_data, game_teams_data)
+    StatTracker.new(locations)#games_data, teams_data, game_teams_data)
   end
 
   # Game statistics 
