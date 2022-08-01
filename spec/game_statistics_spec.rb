@@ -1,3 +1,8 @@
+require 'csv'
+require_relative './game_statistics'
+require_relative './game_stat_module'
+require 'spec_helper'
+
 RSpec.describe class GameStatistics do
   mock_games_data = './data/mock_games.csv' 
   team_data = './data/teams.csv' 
