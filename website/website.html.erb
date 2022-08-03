@@ -39,14 +39,14 @@
     <p>Highest Total Score = <%= stat_tracker.highest_total_score %></p>
 
     <p>Lowest Total Score = <%= stat_tracker.lowest_total_score %></p>
-<%if false%>
+
     <p>Percentage Home Wins = <%= stat_tracker.percentage_home_wins %></p>
     
     <p>Percentage Visitor Wins = <%= stat_tracker.percentage_visitor_wins %>
     </p>
     
     <p>Percentage Ties = <%= stat_tracker.percentage_ties %></p>
-<% end %>
+
     <p>Average Goals Per Game = <%= stat_tracker.average_goals_per_game %></p>
 
     <p>
@@ -80,17 +80,17 @@
     <th>  Most Tackles  </th>
     <th>  Fewest Tackles  </th>
   </tr>
+    <% stat_tracker.seasons.each do |season| %>
   <tr>
-    <td>2012 - 2013</td>
-    <% if false %>
-    <td><%= stat_tracker.winningest_coach("20122013")%></td>
-    <td><%= stat_tracker.worst_coach("20122013")%></td>
-    <td><%= stat_tracker.most_accurate_team("20122013")%></td>
-    <td><%= stat_tracker.least_accurate_team("20122013")%></td>
-    <td><%= stat_tracker.most_tackles("20122013")%></td>
-    <td><%= stat_tracker.fewest_tackles("20122013")%></td>
-    <% end %>
+      <td><%= "#{season[0..3]}-#{season[-4..-1]}" %> </td>
+      <td><%= stat_tracker.winningest_coach(season)%></td>
+      <td><%= stat_tracker.worst_coach(season)%></td>
+      <td><%= stat_tracker.most_accurate_team(season)%></td>
+      <td><%= stat_tracker.least_accurate_team(season)%></td>
+      <td><%= stat_tracker.most_tackles(season)%></td>
+      <td><%= stat_tracker.fewest_tackles(season)%></td>
   </tr>
+    <% end %>
 </table><br><br>
 
 <div id="h2_image">
@@ -100,19 +100,17 @@
   <tr>
     <th> Team </th>
     <th> Abbrev. </th>
-    <th> Stadium </th>
     <th> Team ID </th>
     <th> Franchise ID </th>
     <th> Website </th>
   </tr>
   <% stat_tracker.team_ids.each do |team| %>
   <tr>
-    <td><%= stat_tracker.team_info(team)[:teamname]%></td>
-    <td><%= stat_tracker.team_info(team)[:abbreviation]%></td>
-    <td><%= stat_tracker.team_info(team)[:stadium]%></td>
-    <td><%= stat_tracker.team_info(team)[:team_id]%></td>
-    <td><%= stat_tracker.team_info(team)[:franchiseid]%></td>
-    <td><%= stat_tracker.team_info(team)[:link]%></td>
+    <td><%= stat_tracker.team_info(team)["team_name"]%></td>
+    <td><%= stat_tracker.team_info(team)["abbreviation"]%></td>
+    <td><%= stat_tracker.team_info(team)["team_id"]%></td>
+    <td><%= stat_tracker.team_info(team)["franchise_id"]%></td>
+    <td><%= stat_tracker.team_info(team)["link"]%></td>
   </tr>
   <% end %>
 </table>
@@ -133,7 +131,7 @@
   </tr>
   <% stat_tracker.team_ids.each do |team| %>
   <tr>
-    <td><%= stat_tracker.team_info(team)[:teamname]%></td>
+    <td><%= stat_tracker.team_info(team)["team_name"]%></td>
     <td><%= stat_tracker.best_season(team)%></td>
     <td><%= stat_tracker.worst_season(team)%></td>
     <td><%= stat_tracker.most_goals_scored(team)%></td>

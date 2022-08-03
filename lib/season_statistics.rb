@@ -13,14 +13,12 @@ class SeasonStatistics
   end
 
   def winningest_coach(season)
-    records = coach_records(season)
-    populate_coach_records(season, records)
+    records = populate_coach_records(season)
     winning_record(records).max_by { |team, win_percent| win_percent }[0].to_s
   end
 
   def worst_coach(season)
-    records = coach_records(season)
-    populate_coach_records(season, records)
+    records = populate_coach_records(season)
     winning_record(records).min_by { |team, win_percent| win_percent }[0].to_s
   end
 
