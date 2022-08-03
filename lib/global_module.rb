@@ -26,11 +26,19 @@ module Globeable
     end.sort
   end
 
-  def games_by_season(season)
-    games_array = []
-    @games_data.each do |row|
-    games_array <<row[:game_id] if row[:season] == season
-    end
-    games_array.uniq
-  end
+  # def games_by_season(season)
+  #   games_array = []
+  #   @games_data.each do |row|
+  #   games_array <<row[:game_id] if row[:season] == season
+  #   end
+  #   games_array.uniq
+  # end
+
+  # def coaches_by_season(season)
+  #   coaches_array = []
+  #   @season_coaches_data.each do |row|
+  #     coaches_array << row[:head_coach] if season == row[:season]
+  #   end
+  #   coaches_array.uniq
+  # end
 end

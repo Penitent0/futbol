@@ -2,19 +2,17 @@ module Seasonable
   def games_by_season(season)
     games_array = []
     @games_data.each do |row|
-    games_array <<row[:game_id] if row[:season] == season
+      games_array << row[:game_id] if row[:season] == season
     end
     games_array.uniq
   end
 
   def coaches_by_season(season)
     coaches_array = []
-    games_by_season(season).each do |game|
-      @game_teams_data.select { |row| row[:game_id] == game }.each do |row|
-        coaches_array << row[:head_coach].to_sym
-      end
+    @season_coaches_data.each do |row|
+      coaches_array << row[:head_coach] if season == row[:season]
     end
-    coaches_array.uniq
+    coaches_array.map! { |coach| coach.to_sym }
   end
 
   def coach_records(season)
@@ -24,7 +22,7 @@ module Seasonable
     end
     coach_records
   end
-
+  
   def populate_coach_records(season, records)
     games_by_season(season).each do |game|
       @game_teams_data.each do |row|

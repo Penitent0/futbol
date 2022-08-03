@@ -5,9 +5,10 @@ RSpec.describe SeasonStatistics do
   mock_game_teams_data = CSV.read './data/mock_game_teams.csv', headers: true, header_converters: :symbol
   let!(:league_statistics) { LeagueStatistics.new(team_data, mock_game_teams_data) }
   mock_games_data = CSV.read './data/mock_games.csv', headers: true, header_converters: :symbol
+  season_coaches_data = CSV.read './data/season_coaches.csv', headers: true, header_converters: :symbol
   
 
-  let!(:season) { SeasonStatistics.new(team_data, mock_games_data, mock_game_teams_data) }
+  let!(:season) { SeasonStatistics.new(team_data, mock_games_data, mock_game_teams_data, season_coaches_data) }
 
   context 'season statistics' do 
 

@@ -14,9 +14,10 @@ class StatTracker
     @games_data = CSV.read(@locations[:games], headers: true, header_converters: :symbol)
     @teams_data = CSV.read(@locations[:teams], headers: true, header_converters: :symbol)
     @game_teams_data = CSV.read(@locations[:game_teams], headers: true, header_converters: :symbol)
+    @season_coaches_data = CSV.read(@locations[:season_coaches], headers: true, header_converters: :symbol)
     @game_statistics = GameStatistics.new(@games_data, @game_teams_data)
     @league_statistics = LeagueStatistics.new(@teams_data, @game_teams_data)
-    @season_statistics = SeasonStatistics.new(@teams_data, @games_data, @game_teams_data)
+    @season_statistics = SeasonStatistics.new(@teams_data, @games_data, @game_teams_data, @season_coaches_data)
     @team_statistics = TeamStatistics.new(@teams_data, @games_data, @game_teams_data)
   end
 
@@ -86,7 +87,7 @@ class StatTracker
     @league_statistics.lowest_scoring_home_team
   end
   
-  # # Season Statistics
+  # Season Statistics
   def winningest_coach(season)
     @season_statistics.winningest_coach(season)
   end

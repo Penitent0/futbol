@@ -6,10 +6,11 @@ class SeasonStatistics
   include Seasonable
   include Globeable
 
-  def initialize(teams_data, games_data, game_teams_data)
+  def initialize(teams_data, games_data, game_teams_data, season_coaches_data)
     @teams_data = teams_data
     @games_data = games_data
     @game_teams_data = game_teams_data
+    @season_coaches_data = season_coaches_data
   end
 
   def winningest_coach(season)

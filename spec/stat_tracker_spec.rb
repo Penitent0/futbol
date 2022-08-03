@@ -4,8 +4,9 @@ RSpec.describe StatTracker do
   mock_games_data = './data/mock_games.csv' 
   team_data = './data/teams.csv' 
   mock_game_teams_data = './data/mock_game_teams.csv' 
+  season_coaches_data = './data/season_coaches.csv'
   
-  let!(:mock_locations) {{games: mock_games_data, teams: team_data, game_teams: mock_game_teams_data}}
+  let!(:mock_locations) {{games: mock_games_data, teams: team_data, game_teams: mock_game_teams_data, season_coaches: season_coaches_data}}
 
   let!(:stat_tracker) { StatTracker.from_csv(mock_locations) }
   
