@@ -100,7 +100,6 @@ class TeamStatistics
       away_games = away_games_by_team(given_team_id)
       home_games = home_games_by_team(given_team_id)
       season_record_hash = Hash.new{ |season, record | season[record] = [0.0, 0.0, 0.0] }
-
       home_games.each do |game|
         if game[:away_goals] > game[:home_goals]
           season_record_hash[game[:season]][2] += 1 #losses
@@ -110,7 +109,6 @@ class TeamStatistics
           season_record_hash[game[:season]][1] += 1 #ties
         end
       end
-
       away_games.each do |game|
         if game[:away_goals] > game[:home_goals]
           season_record_hash[game[:season]][0] += 1

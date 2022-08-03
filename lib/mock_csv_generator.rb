@@ -1,7 +1,10 @@
 require 'csv'
+require 'map_csv'
 require './lib/stat_tracker'
+require_relative 'global_module'
 
 class MockGenerator < StatTracker
+  include Globeable
 
   def initialize(locations)
     @locations = locations
@@ -40,9 +43,15 @@ class MockGenerator < StatTracker
   end
 
   def generate_coaches_by_season
-    CSV.open('./data/coaches_seasons.csv', 'w') do |csv|
-      csv << "head_coach, season"
-      @game_teams_data.each do |row|
+    CSV.open('./data/game_teams_seasons.csv', 'w') do |csv|
+      require 'pry'; binding.pry
+      
+      end
     end
   end
+
+  results = import
+
+
+
 end

@@ -25,4 +25,12 @@ module Globeable
       row[:team_id]
     end.sort
   end
+
+  def games_by_season(season)
+    games_array = []
+    @games_data.each do |row|
+    games_array <<row[:game_id] if row[:season] == season
+    end
+    games_array.uniq
+  end
 end
