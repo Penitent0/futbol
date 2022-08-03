@@ -13,7 +13,7 @@ RSpec.describe TeamStatistics do
       end
 
       it 'can return info on teams' do
-        expect(team_statistics.team_info(28)).to eq({"abbreviation" => "LFC", "franchise_id" => "29", "link" => "/api/v1/teams/28", "team_id" => "28", "teamname" => "Los Angeles FC"})
+        expect(team_statistics.team_info(28)).to eq({"abbreviation" => "LFC", "franchise_id" => "29", "link" => "/api/v1/teams/28", "team_id" => "28", "team_name" => "Los Angeles FC"})
       end
 
       it 'can return the fewest goals scored in a game by a given team' do
