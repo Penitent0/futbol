@@ -67,15 +67,15 @@
     <th>  Most Tackles  </th>
     <th>  Fewest Tackles  </th>
   </tr>
-  <tr>
     <% stat_tracker.seasons.each do |season| %>
+  <tr>
       <td><%= "#{season[0..3]}-#{season[-4..-1]}" %> </td>
-      <td><%= stat_tracker.winningest_coach("20122013")%></td>
-      <td><%= stat_tracker.worst_coach("20122013")%></td>
-      <td><%= stat_tracker.most_accurate_team("20122013")%></td>
-      <td><%= stat_tracker.least_accurate_team("20122013")%></td>
-      <td><%= stat_tracker.most_tackles("20122013")%></td>
-      <td><%= stat_tracker.fewest_tackles("20122013")%></td>
+      <td><%= stat_tracker.winningest_coach(season)%></td>
+      <td><%= stat_tracker.worst_coach(season)%></td>
+      <td><%= stat_tracker.most_accurate_team(season)%></td>
+      <td><%= stat_tracker.least_accurate_team(season)%></td>
+      <td><%= stat_tracker.most_tackles(season)%></td>
+      <td><%= stat_tracker.fewest_tackles(season)%></td>
   </tr>
     <% end %>
 </table><br><br>
