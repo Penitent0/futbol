@@ -2,15 +2,22 @@
 <html lang="en-US">
   <head>
     <style>
-      background1 {
+        h1 {
+          color: whitesmoke
+        }
+      #h1_image {
         border: 2px solid black;
         padding: 25px;
-        background: url(https://unsplash.com/photos/UiiHVEyxtyA);
-        background-repeat: no-repeat;
-        background-size: 300px 100px;
+        background: url(http://static3.depositphotos.com/1000117/103/i/950/depositphotos_1036712-stock-photo-grass-on-football-stadium.jpg);
+        background-repeat: repeat;
+        background-size: auto;
       }
-      h1 {
-        border-bottom: 5px solid red;
+      #h2_image {
+        border: 2px solid black;
+        padding: 10px;
+        background-color: greenyellow;
+        background-repeat: repeat;
+        background-size: auto;
       }
       table, td, th {
         border: 1px solid black;
@@ -21,10 +28,14 @@
   </head>
 
   <body>
-  <div id="background1">
-    <h1>FUTBOL GROUP PROJECT WEBSITE</h1>
+
+      <div id="h1_image">
+        <h1>FUTBOL GROUP PROJECT WEBSITE</h1>
+      </div>
+    <br><br>
+  <div id="h2_image">
+    <h2>League-wide Statistics</h2>
   </div>
-    League-wide Statistics
     <p>Highest Total Score = <%= stat_tracker.highest_total_score %></p>
 
     <p>Lowest Total Score = <%= stat_tracker.lowest_total_score %></p>
@@ -39,13 +50,13 @@
     <p>Average Goals Per Game = <%= stat_tracker.average_goals_per_game %></p>
 
     <p>
-    Average Goals by Season <br><br>
+    <h4>Average Goals by Season</h4>
     <% stat_tracker.average_goals_by_season.each do |season, average| %>
     <%= "#{season[0..3]}-#{season[-4..-1]} = #{average}" %> <br>
     <% end %>
     </p>
 
-    Count of Games by Season <br><br>
+    <h4>Count of Games by Season</h4>
     <% stat_tracker.count_of_games_by_season.each do |season, games| %>
     <%= "#{season[0..3]}-#{season[-4..-1]} = #{games}" %> <br><br>
     <% end %>
@@ -56,9 +67,11 @@
     Highest Scoring Visitor = <%= stat_tracker.highest_scoring_visitor %> <br> <br>
     Lowest Scoring Visitor = <%= stat_tracker.lowest_scoring_visitor %> <br> <br><br>
   
-<h2>Season Statistics</h2> <br><br>
- <table>
-  <tr>
+  <div id="h2_image">
+  <h2>Season Statistics</h2>
+  </div>
+  <table>
+    <tr>
     <th>Season  </th>
     <th>  Winningest Coach  </th>
     <th>  Worst Coach  </th>
@@ -80,7 +93,9 @@
     <% end %>
 </table><br><br>
 
+<div id="h2_image">
 <h2> Team Info Table </h2>
+</div>
 <table>
   <tr>
     <th> Team </th>
@@ -100,7 +115,9 @@
   <% end %>
 </table>
 
+<div id="h2_image">
 <h2> Team Statistics Table </h2>
+</div>
 <table>
   <tr>
     <th> Team </th>
